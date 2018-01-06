@@ -1,5 +1,6 @@
 #############################################################################
 #
+<<<<<<< HEAD
 # Makefile for librf24
 #
 # License: GPL (General Public License)
@@ -124,3 +125,26 @@ endif
 	@ssh -q -t -p $(REMOTE_PORT) $(REMOTE) "sudo install -m 0644 /tmp/RF24/$(DRIVER_DIR)/*.h $(REMOTE_HEADER_DIR)/$(DRIVER_DIR)"
 	@ssh -q -t -p $(REMOTE_PORT) $(REMOTE) "sudo install -m 0644 /tmp/RF24/$(ARCH_DIR)/*.h $(REMOTE_HEADER_DIR)/$(ARCH_DIR)"
 	@ssh -q -t -p $(REMOTE_PORT) $(REMOTE) "rm -rf /tmp/RF24"
+=======
+# Makefile for librf24 examples on Linux
+#
+# License: GPL (General Public License)
+# Author:  gnulnulf <arco@appeltaart.mine.nu>
+# Date:    2013/02/07 (version 1.0)
+#
+# Description:
+# ------------
+# use make all and make install to install the examples
+#
+
+ifeq ($(wildcard ../Makefile.inc), )
+	$(error Configuration not found. Run ./configure first)
+endif
+
+include ../Makefile.inc
+
+# define all programs
+PROGRAMS = gettingstarted gettingstarted_call_response transfer pingpair_dyn gettingstarted_jk New_RF24
+
+include Makefile.examples
+>>>>>>> acede8bf52c6dd96ab9334a98ff9b9ddc144ff3c
